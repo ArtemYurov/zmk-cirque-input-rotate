@@ -1,0 +1,22 @@
+# Copyright (c) 2026 Artem Yurov
+# SPDX-License-Identifier: MIT
+
+description: |
+  Input pseudo-device that rotates the relative X/Y motion of another input
+  device (e.g. a Cirque trackpad mounted at an angle). Other events are
+  forwarded unchanged.
+
+compatible: "zmk,cirque-input-rotate"
+
+properties:
+  input:
+    type: phandle
+    required: true
+    description: Source input device whose REL_X/REL_Y events are rotated.
+
+  angle:
+    type: int
+    required: true
+    description: |
+      Rotation in degrees, positive = counterclockwise in the source device's
+      raw X/Y frame.
